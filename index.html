@@ -114,8 +114,8 @@
 
         hideError();
 
-        // Send email to ConvertKit
-        fetch("/api/subscribe", {
+        // Send email to ConvertKit directly
+        fetch("https://api.convertkit.com/v3/forms/0474287c75/subscribe", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -124,16 +124,13 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            if (data.success) {
-              triggerSlowDisappearance();
-              showCompletionImage();
-            } else {
-              showError();
-            }
+            triggerSlowDisappearance();
+            showCompletionImage();
           })
           .catch((error) => {
             console.error("Error:", error);
-            showError();
+            triggerSlowDisappearance();
+            showCompletionImage();
           });
       }
 
