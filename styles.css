@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background-color: #e8e0d5;
+  color: #0a0e27;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.about-us {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a99f96;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.about-us:hover {
+  color: #7a716a;
+}
+
+.container {
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.main-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  color: #c9b8ad;
+  margin-bottom: 80px;
+  font-weight: 500;
+}
+
+.email-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.email-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #d4c4b0;
+  background-color: transparent;
+  font-size: 16px;
+  color: #0a0e27;
+  text-align: center;
+  font-family: inherit;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.email-input::placeholder {
+  color: #d4c4b0;
+}
+
+.email-input:focus {
+  outline: none;
+  border-bottom-color: #0a0e27;
+}
+
+.error-message {
+  color: #a99f96;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-family: "Courier New", monospace;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  height: 18px;
+}
+
+.error-message.show {
+  opacity: 1;
+}
+
+.button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  font-family: inherit;
+}
+
+.button:hover {
+  background-color: #333333;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.widget {
+  position: fixed;
+  bottom: 40px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.widget-dots {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  gap: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #333333;
+}
+
+.figma-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.nav-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #999999;
+  transition: background-color 0.3s ease;
+}
+
+.nav-dot.active {
+  background-color: #333333;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+
+  .email-input {
+    max-width: 90%;
+  }
+
+  .header {
+    top: 20px;
+    right: 20px;
+  }
+
+  .widget {
+    bottom: 20px;
+    right: 12px;
+  }
+}
+/* About Us Page Styles */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.about-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.message-box {
+  background-color: #ffffff;
+  padding: 30px 60px;
+  font-size: 24px;
+  font-family: "Courier New", monospace;
+  color: #0a0e27;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  max-width: 500px;
+  letter-spacing: 1px;
+}
+
+.about-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.time {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #a99f96;
+  font-weight: 500;
+}
+
+.quote {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #c9b8ad;
+  font-weight: 400;
+}
+
+.close-button {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a99f96;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #7a716a;
+}
+
+@media (max-width: 768px) {
+  .message-box {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+
+  .about-messages {
+    gap: 30px;
+  }
+}
+
+.completion-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.completion-image {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.completion-image-container.show .completion-image {
+  opacity: 0.05;
+}
+
+/* Fade out animation for content disappearance */
+.fade-out {
+  animation: slowFadeOut 2s ease-out forwards;
+}
+
+@keyframes slowFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

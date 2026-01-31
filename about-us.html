@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="close-button" onclick="navigateWithTransition('')">CLOSE</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="about-container">
+      <div class="about-messages">
+        <div class="message-box">Nothing is taken.</div>
+        <div class="message-box">Something is refused.</div>
+      </div>
+
+      <div class="about-footer">
+        <div class="time">22:22 PM</div>
+        <div class="quote">yesterday was theirs, today is yours</div>
+      </div>
+    </div>
+
+    <!-- Widget -->
+    <div class="widget">
+      <div class="widget-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="figma-icon">◆</div>
+      <div class="nav-dots">
+        <div class="nav-dot active"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+      </div>
+      <script>
+        function navigateWithTransition(url) {
+          const aboutContainer = document.querySelector(".about-container");
+          aboutContainer.style.transition = "opacity 0.6s ease-out";
+          aboutContainer.style.opacity = "0";
+          setTimeout(() => {
+            if (url === "") {
+              window.history.back();
+            } else {
+              window.location.href = url;
+            }
+          }, 600);
+        }
+      </script>
+    </div>
+  </body>
+</html>
