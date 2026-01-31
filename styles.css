@@ -83,6 +83,11 @@ body {
   margin-bottom: 40px;
 }
 
+#ck_form_container {
+  width: 100%;
+  max-width: 400px;
+}
+
 .email-input {
   width: 100%;
   max-width: 400px;
@@ -326,7 +331,7 @@ body {
 }
 
 .completion-image-container.show .completion-image {
-  opacity: 0.3;
+  opacity: 0.05;
 }
 
 /* Fade out animation for content disappearance */

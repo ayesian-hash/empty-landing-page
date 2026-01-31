@@ -23,16 +23,7 @@
         <p class="subtitle">SILENCE IS THE ONLY LUXURY LEFT.</p>
 
         <div class="email-section">
-          <input
-            type="email"
-            class="email-input"
-            id="emailInput"
-            placeholder="Email address"
-          />
-          <div class="error-message" id="errorMessage"></div>
-          <button class="button" onclick="handleJoinWaitlist()">
-            JOIN THE WAITLIST
-          </button>
+          <div id="ck_form_container"></div>
         </div>
       </div>
 
@@ -59,23 +50,12 @@
       <img src="balloon-boy.svg" alt="Balloon Boy" class="completion-image" />
     </div>
 
+    <script
+      async
+      data-uid="1cd2279b3e"
+      src="https://the-empty-app.kit.com/1cd2279b3e/index.js"
+    ></script>
     <script>
-      function validateEmail(email) {
-        // Simple email validation - just check for @ and a dot
-        return email.includes("@") && email.includes(".") && email.length > 5;
-      }
-
-      function showError() {
-        const errorMessage = document.getElementById("errorMessage");
-        errorMessage.textContent = "Invalid Format";
-        errorMessage.classList.add("show");
-      }
-
-      function hideError() {
-        const errorMessage = document.getElementById("errorMessage");
-        errorMessage.classList.remove("show");
-      }
-
       function navigateWithTransition(url) {
         const pageContainer = document.querySelector(".page-container");
         pageContainer.style.transition =
@@ -99,56 +79,13 @@
         }, 2000);
       }
 
-      function handleJoinWaitlist() {
-        const email = document.getElementById("emailInput").value.trim();
-
-        if (!email) {
-          showError();
-          return;
+      // Listen for ConvertKit form submission
+      window.addEventListener("message", (event) => {
+        if (event.data.type === "formSubmitted") {
+          triggerSlowDisappearance();
+          showCompletionImage();
         }
-
-        if (!validateEmail(email)) {
-          showError();
-          return;
-        }
-
-        hideError();
-
-        // Send email to ConvertKit directly
-        fetch("https://api.convertkit.com/v3/forms/0474287c75/subscribe", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email: email }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            triggerSlowDisappearance();
-            showCompletionImage();
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            triggerSlowDisappearance();
-            showCompletionImage();
-          });
-      }
-
-      // Clear error on input
-      document
-        .getElementById("emailInput")
-        .addEventListener("input", function () {
-          hideError();
-        });
-
-      // Allow Enter key to submit
-      document
-        .getElementById("emailInput")
-        .addEventListener("keypress", function (event) {
-          if (event.key === "Enter") {
-            handleJoinWaitlist();
-          }
-        });
+      });
     </script>
   </body>
 </html>
