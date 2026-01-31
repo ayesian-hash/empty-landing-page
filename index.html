@@ -93,8 +93,8 @@
           return;
         }
 
-        // Send to backend API
-        fetch("/api/subscribe", {
+        // Send to Formspree
+        fetch("https://formspree.io/f/mnjvklrw", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
