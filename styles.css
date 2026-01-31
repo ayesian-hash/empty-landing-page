@@ -326,7 +326,7 @@ body {
 }
 
 .completion-image-container.show .completion-image {
-  opacity: 0.05;
+  opacity: 0.3;
 }
 
 /* Fade out animation for content disappearance */
