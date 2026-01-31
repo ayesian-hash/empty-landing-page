@@ -93,13 +93,12 @@
           return;
         }
 
-        // Send to ConvertKit
-        fetch("https://api.convertkit.com/v3/forms/1cd2279b3e/subscribe", {
+        // Send to backend API
+        fetch("/api/subscribe", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: email,
-            api_key: "pk_8eef4b9b7e1a64b9e2d6f3c4b5a6d7e8",
           }),
         })
           .then(() => {
