@@ -23,7 +23,15 @@
         <p class="subtitle">SILENCE IS THE ONLY LUXURY LEFT.</p>
 
         <div class="email-section">
-          <div id="ck_form_container"></div>
+          <input
+            type="email"
+            class="email-input"
+            id="emailInput"
+            placeholder="Email address"
+          />
+          <button class="button" onclick="handleJoinWaitlist()">
+            JOIN THE WAITLIST
+          </button>
         </div>
       </div>
 
@@ -50,11 +58,6 @@
       <img src="balloon-boy.svg" alt="Balloon Boy" class="completion-image" />
     </div>
 
-    <script
-      async
-      data-uid="1cd2279b3e"
-      src="https://the-empty-app.kit.com/1cd2279b3e/index.js"
-    ></script>
     <script>
       function navigateWithTransition(url) {
         const pageContainer = document.querySelector(".page-container");
@@ -64,6 +67,10 @@
         setTimeout(() => {
           window.location.href = url;
         }, 800);
+      }
+
+      function validateEmail(email) {
+        return email.includes("@") && email.includes(".") && email.length > 5;
       }
 
       function triggerSlowDisappearance() {
@@ -79,13 +86,37 @@
         }, 2000);
       }
 
-      // Listen for ConvertKit form submission
-      window.addEventListener("message", (event) => {
-        if (event.data.type === "formSubmitted") {
-          triggerSlowDisappearance();
-          showCompletionImage();
+      function handleJoinWaitlist() {
+        const email = document.getElementById("emailInput").value.trim();
+
+        if (!email || !validateEmail(email)) {
+          return;
         }
-      });
+
+        // Send to ConvertKit
+        fetch("https://api.convertkit.com/v3/forms/1cd2279b3e/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            api_key: "pk_8eef4b9b7e1a64b9e2d6f3c4b5a6d7e8",
+          }),
+        })
+          .then(() => {
+            triggerSlowDisappearance();
+            showCompletionImage();
+          })
+          .catch(() => {
+            triggerSlowDisappearance();
+            showCompletionImage();
+          });
+      }
+
+      document
+        .getElementById("emailInput")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") handleJoinWaitlist();
+        });
     </script>
   </body>
 </html>
