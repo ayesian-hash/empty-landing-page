@@ -9,7 +9,9 @@
   <body>
     <!-- Header -->
     <div class="header">
-      <div class="close-button" onclick="navigateWithTransition('')">CLOSE</div>
+      <div class="close-button" onclick="navigateWithTransition('index.html')">
+        CLOSE
+      </div>
     </div>
 
     <!-- Main Content -->
@@ -40,20 +42,18 @@
         <div class="nav-dot"></div>
         <div class="nav-dot"></div>
       </div>
-      <script>
-        function navigateWithTransition(url) {
-          const aboutContainer = document.querySelector(".about-container");
-          aboutContainer.style.transition = "opacity 0.6s ease-out";
-          aboutContainer.style.opacity = "0";
-          setTimeout(() => {
-            if (url === "") {
-              window.history.back();
-            } else {
-              window.location.href = url;
-            }
-          }, 600);
-        }
-      </script>
     </div>
+
+    <script>
+      function navigateWithTransition(url) {
+        const pageContainer = document.querySelector(".about-container");
+        pageContainer.style.transition =
+          "opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
+        pageContainer.style.opacity = "0";
+        setTimeout(() => {
+          window.location.href = url;
+        }, 800);
+      }
+    </script>
   </body>
 </html>
