@@ -113,8 +113,28 @@
         }
 
         hideError();
-        triggerSlowDisappearance();
-        showCompletionImage();
+
+        // Send email to ConvertKit
+        fetch("/api/subscribe", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              triggerSlowDisappearance();
+              showCompletionImage();
+            } else {
+              showError();
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            showError();
+          });
       }
 
       // Clear error on input
