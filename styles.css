@@ -60,11 +60,11 @@ body {
 
 .main-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 56px;
+  font-size: clamp(28px, 5vw, 56px);
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 24px;
-  white-space: nowrap;
+  white-space: wrap;
   line-height: 1.2;
 }
 
