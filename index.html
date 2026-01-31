@@ -61,8 +61,8 @@
 
     <script>
       function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        // Simple email validation - just check for @ and a dot
+        return email.includes("@") && email.includes(".") && email.length > 5;
       }
 
       function showError() {
