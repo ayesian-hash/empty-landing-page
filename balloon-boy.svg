@@ -1,6 +1,6 @@
 <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
   <!-- Background with rounded corners -->
-  <rect width="400" height="400" fill="#e8e0d5" rx="60" ry="60"/>
+  <rect x="0" y="0" width="400" height="400" fill="#e8e0d5" rx="60" ry="60"/>
   
   <!-- Head -->
   <rect x="160" y="50" width="80" height="80" fill="black"/>
@@ -28,4 +28,3 @@
   <!-- Right Foot -->
   <rect x="210" y="320" width="35" height="15" fill="black"/>
 </svg>
-
